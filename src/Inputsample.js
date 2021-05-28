@@ -1,4 +1,4 @@
-import React , {useSta, useState} from 'react';
+import React , { useState , useRef} from 'react';
 
 function InputSample(){
     const [inPuts, setInputs] = useState({
@@ -6,9 +6,12 @@ function InputSample(){
         nickname : '', 
     });
 
+    const nameInput = useRef();
+
     const {name,nickname} = inPuts;
 
     const onChage = (e) => {
+       
         const {name, value } = e.target;
 
         setInputs({ 
@@ -23,12 +26,16 @@ function InputSample(){
             name : '',
             nickname : '',
         });
-    
+        nameInput.current.focus();
     }
     return(
 
         <div>
-            <input name="name" placeholder='이름' onChange={onChage} value={name}/>
+            <input name="name" 
+            placeholder='이름'
+             onChange={onChage} 
+             value={name}
+             ref={nameInput} />
             <input name="nickname" placeholder='닉네임' onChange={onChage} value={nickname}/>
             <button onClick={onReset}>초기화</button>
             <div>
