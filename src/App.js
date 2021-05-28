@@ -1,12 +1,12 @@
 import React from 'react';
-import InputSample from './Inputsample';
+import UserList from './UserList';
 
 
 
 
 function App() {
   return (  
-    <InputSample />
+    <UserList />
   );
 }
 
