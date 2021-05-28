@@ -1,23 +1,39 @@
 import React , {useSta, useState} from 'react';
 
 function InputSample(){
-    const [text, setText] = useState('');
+    const [inPuts, setInputs] = useState({
+        name: '',
+        nickname : '', 
+    });
+
+    const {name,nickname} = inPuts;
+
     const onChage = (e) => {
-        // console.log(e.target.value); // 이벤트가발생한곳의 돔
-        setText(e.target.value);
+        const {name, value } = e.target;
+
+        setInputs({ 
+            ...inPuts, // 스프레드 문법으로 배열의 값을 복사함 
+            [name]:value
+         });
     }
 
     const onReset = () =>{
-        setText('');
+
+        setInputs({
+            name : '',
+            nickname : '',
+        });
+    
     }
     return(
 
         <div>
-            <input onChange={onChage} value={text}/>
+            <input name="name" placeholder='이름' onChange={onChage} value={name}/>
+            <input name="nickname" placeholder='닉네임' onChange={onChage} value={nickname}/>
             <button onClick={onReset}>초기화</button>
             <div>
                 <b>값: </b>
-                {text}
+               {name} ({nickname})
             </div>
         </div>
     )
