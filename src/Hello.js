@@ -7,6 +7,7 @@ function Hello({color, name, isSpecial}) {
     }}>
         {/* {isSpecial ? <b>*</b> : null } */}
         {isSpecial && <b>*</b>}
+        {/* {isSpecial && '스페셜하다'} */}
         안녕하세요 {name}
         </div>
         );
