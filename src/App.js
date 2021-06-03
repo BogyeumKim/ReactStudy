@@ -43,6 +43,14 @@ const nextId= useRef(4); // 초기값 4로 설정
 
 const onCreate = () => {
 
+  const user= {
+    id : nextId.current,
+    username,
+    email, // 스프레드시트로하면 ...users
+  }
+
+  setUsers([...users,user]);
+
   setInputs({
     username:'',
     email:'',
@@ -51,6 +59,9 @@ const onCreate = () => {
   console.log(nextId.current); // 현재값 출력
   nextId.current += 1; // onCreate가 실행될떄마다 출력하고 1씩더함
   // UseRef 쓰는이유는 실행마다 nextId값을 랜더링(컴포넌트를) 다시 할필요가 없기때문에 ( ajax같은느낌 ? )
+
+
+
 }
 
   return (  
