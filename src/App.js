@@ -83,6 +83,10 @@ const onToggle = id => {
 
 }
 
+// 특정값 업데이트할때는 ... user 기존의 useres를 수정하는게아니라 새로운 user에 넣고 덮어씌우기 map 
+// 제거할때는 filter 
+// 생성할때는 concat or 스프레드시트
+
 
   return (  
     <>
