@@ -26,16 +26,19 @@ function App() {
         id:1,
         username : 'bogyeum',
         email : 'qhrua69@naver.com',
+        active : true,
     },
     {
         id:2,
         username : 'test',
         email : 'test1@google.com',
+        active : false,
     },
     {
         id:3,
         username : 'aabc',
         email : 'aabc@daum.com',
+        active : false,
     }
 ]);
 
@@ -66,6 +69,21 @@ const onRemove = id => {
   setUsers(users.filter(user=>user.id !== id)); // 만족하는경우엔 넣음
   // id 3번 삭제누르면 3번만 걸리니까 id 1,2번만 가지고 다시 배열을 생성함
 };
+
+
+const onToggle = id => {
+  setUsers(users.map(
+    user=>user.id === id ? 
+    {
+      ...user, 
+      active : !user.active 
+    }
+     : user
+  ));
+
+}
+
+
   return (  
     <>
     <CreateUser username={username} 
@@ -73,7 +91,7 @@ const onRemove = id => {
     onChange={onChange} 
     onCreate={onCreate}
     />
-    <UserList users={users} onRemove={onRemove}/>
+    <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
     </>
   );
 }

@@ -1,12 +1,17 @@
 import React from 'react';
 
-function User({aaa, onRemove}){
+function User({aaa, onRemove, onToggle}){
 
-    const { username, email, id} = aaa;
+    const { username, email, id, active} = aaa;
 
     return (
         <div>
-                <b>{username}</b><span>({email})</span>
+                <b style={{
+                    color : active ? 'green' : 'black',
+                    cursor:'pointer'
+                }} onClick={() => onToggle(id)}
+                
+                >{username}</b><span>({email})</span>
                 <button onClick={ ()=> onRemove(id)}>삭제</button>
                 {/* () 애로우펑션을 안하고 그냥 쓰면 랜더링하면서 바로 실행됨 */}
                 
@@ -16,7 +21,7 @@ function User({aaa, onRemove}){
 
 
 
-function UserList({users, onRemove}){
+function UserList({users, onRemove, onToggle}){
    
 
     return (
@@ -27,6 +32,7 @@ function UserList({users, onRemove}){
                      aaa={bbb} 
                     key={bbb.id}
                      onRemove={onRemove}
+                     onToggle={onToggle}
                      />) 
              )
          }
