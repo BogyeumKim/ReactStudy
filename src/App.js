@@ -49,7 +49,8 @@ const onCreate = () => {
     email, // 스프레드시트로하면 ...users
   }
 
-  setUsers([...users,user]);
+  // setUsers([...users,user]);
+  setUsers(users.concat(user));
 
   setInputs({
     username:'',
