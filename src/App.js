@@ -3,7 +3,10 @@ import CreateUser from './CreateUser';
 import UserList from './UserList';
 
 
-
+function countActiveUsers(users){
+  console.log('활성 사용자 수를 세는중 .. ');
+  return users.filter(user => user.active).length;
+}
 
 function App() {
 
@@ -87,6 +90,7 @@ const onToggle = id => {
 // 제거할때는 filter 
 // 생성할때는 concat or 스프레드시트
 
+  const count = countActiveUsers(users);
 
   return (  
     <>
@@ -96,6 +100,7 @@ const onToggle = id => {
     onCreate={onCreate}
     />
     <UserList users={users} onRemove={onRemove} onToggle={onToggle}/>
+    <div>활성 사용자 수 : {count}</div>
     </>
   );
 }
