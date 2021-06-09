@@ -5,11 +5,11 @@ function User({aaa, onRemove, onToggle}){
     const { username, email, id, active} = aaa;
    
     useEffect(()=>{
-        console.log('값이 설정됨');
-        console.log(aaa);
+        // console.log('값이 설정됨'));
+        // console.log(aaa);
         return ()=>{
-            console.log('값이 바뀌기전');
-            console.log(aaa);
+            // console.log('값이 바뀌기전');
+            // console.log(aaa);
         }
     },[aaa])
 
