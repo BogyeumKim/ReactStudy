@@ -5,7 +5,11 @@ function User({aaa, onRemove, onToggle}){
     const { username, email, id, active} = aaa;
     useEffect(()=>{
         console.log('컴포넌트가 화면에 나타남');
+// props -> state
+// REST API
+// setInterval, setTimeout
         return() => {
+            // clearInterval, clearTimeout 
             console.log('컴포넌트가 화면에서 사라짐')
         }
     }, []);
