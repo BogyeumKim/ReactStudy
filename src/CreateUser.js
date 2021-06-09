@@ -19,4 +19,4 @@ function CreateUser({ username, email, onChange, onCreate}){
     );
 }
 
-export default CreateUser;
+export default React.memo(CreateUser); // 프롭스가 바뀔떄만 리랜더링됨
