@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useMemo } from 'react';
 import CreateUser from './CreateUser';
 import UserList from './UserList';
 
@@ -90,7 +90,7 @@ const onToggle = id => {
 // 제거할때는 filter 
 // 생성할때는 concat or 스프레드시트
 
-  const count = countActiveUsers(users);
+  const count = useMemo( ()=> countActiveUsers(users), [users]); 
 
   return (  
     <>
