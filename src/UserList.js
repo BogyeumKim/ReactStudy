@@ -18,7 +18,8 @@ const User = React.memo(function User({aaa, onRemove, onToggle}){
                 <b style={{
                     color : active ? 'green' : 'black',
                     cursor:'pointer'
-                }} onClick={() => onToggle(id)}
+                }} 
+                onClick={() => onToggle(id)}
                 
                 >{username}</b><span>({email})</span>
                 <button onClick={ ()=> onRemove(id)}>삭제</button>
@@ -50,4 +51,6 @@ function UserList({users, onRemove, onToggle}){
 
 }
 
-export default React.memo(UserList) ;
+export default React.memo(UserList,
+     (prevProps,nextProps) => nextProps.users === prevProps.users
+) ;
